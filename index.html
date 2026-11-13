@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CAD Tablet Viewer</title>
+    <style>
+        body { font-family: Tahoma, sans-serif; background: #121212; color: #fff; margin: 0; padding: 20px; text-align: center; }
+        .container { max-width: 600px; margin: auto; background: #1e1e1e; padding: 20px; border-radius: 10px; box-shadow: 0 4px 10px rgba(0,0,0,0.5); }
+        input[type="file"] { margin: 20px 0; padding: 10px; background: #333; color: #fff; border: none; border-radius: 5px; width: 100%; }
+        .viewer-box { width: 100%; height: 400px; background: #000; border: 2px dashed #444; border-radius: 5px; display: flex; align-items: center; justify-content: center; margin-top: 15px; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>عرض ملفات الكاد الهندسي</h2>
+        <p>اختر ملف DXF من جهازك لمعاينته فوراً:</p>
+        <input type="file" id="fileInput" accept=".dxf,.DWG">
+        <div class="viewer-box" id="viewerArea">
+            <span style="color: #888;">من فضلك اختر ملف كاد للعرض</span>
+        </div>
+    </div>
+    <script>
+        document.getElementById('fileInput').addEventListener('change', function(event) {
+            const file = event.target.files[0];
+            if (file) {
+                document.getElementById('viewerArea').innerHTML = `<p style="color: #4CAF50;">تم تحميل الملف بنجاح: ${file.name}</p>`;
+            }
+        });
+    </script>
+</body>
+</html>
